@@ -16,11 +16,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mItemsList = (RecyclerView) findViewById(R.id.rv_items);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        mItemsList.setLayoutManager(layoutManager);
-        mItemsList.setHasFixedSize(true);
-        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
-        mItemsList.setAdapter(mAdapter);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new VegetableFragment())
+                .commit();
+
+//        mItemsList = (RecyclerView) findViewById(R.id.rv_items);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        mItemsList.setLayoutManager(layoutManager);
+//        mItemsList.setHasFixedSize(true);
+//        mAdapter = new GreenAdapter(NUM_LIST_ITEMS);
+//        mItemsList.setAdapter(mAdapter);
     }
 }
